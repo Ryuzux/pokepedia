@@ -4,13 +4,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PokePage from './pages/pokepage';
 import BerryPage from './pages/berrypage';
 import ItemPage from './pages/itempage';
+import { PartyProvider } from './context/Partycontext';
+import { BagProvider } from './context/Bagcontext';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>
-      <a href="/pokemon">Pokemon</a>
-    </h1>
+    element: <PokePage/>
   },
   {
     path: "/pokemon",
@@ -29,7 +29,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-
-  </React.StrictMode>,
+    <BagProvider> 
+    <PartyProvider>  
+      <RouterProvider router={router} />
+    </PartyProvider>
+    </BagProvider>
+  </React.StrictMode>
 )

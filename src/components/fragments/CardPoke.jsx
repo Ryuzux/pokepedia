@@ -17,7 +17,6 @@ const CardPoke = ({ pokemon, loading, infoPokemon, addToParty }) => {
                         <h2><b>{item.name}</b></h2>
                         <button
                             onClick={(e) => {
-                                e.stopPropagation();
                                 addToParty(item);
                             }}
                             className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
